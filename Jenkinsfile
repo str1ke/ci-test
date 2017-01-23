@@ -13,7 +13,6 @@ try {
 
     stage('Build site') {
         timeout(60) {
-            #
         }
     }
 
@@ -21,7 +20,6 @@ try {
      */
     if (env.BRANCH_NAME == null) {
         stage('Deploy site') {
-            #
         }
     }
 }
