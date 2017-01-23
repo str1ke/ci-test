@@ -7,19 +7,21 @@ def projectProperties = [
 properties(projectProperties)
 
 try {
-    stage('Checkout source') {
-        checkout scm
-    }
-
-    stage('Build site') {
-        timeout(60) {
+    node {
+        stage('Checkout source') {
+            checkout scm
         }
-    }
 
-    /* The Jenkins which deploys doesn't use multibranch or GitHub Org Folders
-     */
-    if (env.BRANCH_NAME == null) {
-        stage('Deploy site') {
+        stage('Build site') {
+            timeout(60) {
+            }
+        }
+
+        /* The Jenkins which deploys doesn't use multibranch or GitHub Org Folders
+         */
+        if (env.BRANCH_NAME == null) {
+            stage('Deploy site') {
+            }
         }
     }
 }
